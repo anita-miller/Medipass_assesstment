@@ -1,11 +1,11 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import NavigationBar from './Parts/NavigationBar';
+import PieList from './Parts/PieList';
 
 function App() {
   return (
     <div>
-      <NavBar />
+      <NavigationBar />
       <PieList />
     </div>
   );

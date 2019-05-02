@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Grid from '@material-ui/core/Grid';
-import {user} from '../User';
+import {reader} from '../Reader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 
@@ -28,6 +28,12 @@ class PieList extends Component{
   }
 
   getPies = (pageOffset, order, searchString) => {
+    reader.getPies(pageOffset, order, searchString)
+      .then((pies) => (
+        this.setState({
+          pies: pies,
+        })
+      ));
   }
 
   nextPage = () => {
@@ -45,6 +51,12 @@ class PieList extends Component{
   }
 
   getStores = () => {
+    reader.getStores()
+      .then((stores) => (
+        this.setState({
+          stores: stores,
+        })
+      ));
   }
 
   onSearchChange = (e) => {
@@ -83,6 +95,45 @@ class PieList extends Component{
   render(){
       return (
         <div>
+          <Grid container spacing={24} justify="center" style={{ padding: 24 }}>
+            {this.state.pies ? (
+              <div>
+                <Grid container spacing={24} justify="center" >
+                  <List>
+                    <SearchBar
+                      onSearchChange={this.onSearchChange}
+                    />
+                    {this.state.pies.map((currentPie, index) => {
+                      let store = this.state.stores.find(pie => pie.id === currentPie.storeId);
+                      return (
+                        <ListItem key={index}>
+                          <Pie pie={currentPie}
+                            store={store}
+                          />
+                        </ListItem>
+                      );
+                    })}
+
+                  </List>
+                  <Pager justify="center"
+                    nextPage={this.nextPage}
+                    prevPage={this.prevPage}
+                    pageOffset={this.state.offset}
+                    currentPageLength={this.state.pies.length}
+                  />
+
+                </Grid>
+                <Grid container spacing={24} justify="center" style={{ padding: 40 }}>
+
+                  <ChangeOrderBar
+                    changeOrder={this.changeOrder}
+                    order={this.state.order}
+                  />
+                </Grid>
+
+              </div>
+            ) : "No pies Found"}
+          </Grid>
         </div>
       )
   };
