@@ -7,7 +7,11 @@ const AppBar = () => {
     return(
         <div>
             <AppBar position="static" style={{ backgroundColor: '#9736D6' }}>
-            
+                <Toolbar>
+                    <Typography variant="title" color="inherit" >
+                        Pie of the Day Finder
+                    </Typography>
+                </Toolbar>
             </AppBar>
         </div>
     )
