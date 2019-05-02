@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SearchBar component renders a snapshot 1`] = `
+<div>
+  <div
+    className="MuiFormControl-root-1 MuiFormControl-marginNormal-2"
+    style={
+      Object {
+        "padding": 20,
+      }
+    }
+  >
+    <div
+      className="MuiInputBase-root-18 MuiInput-root-5 MuiInput-underline-9 MuiInputBase-formControl-19 MuiInput-formControl-6"
+      onClick={[Function]}
+    >
+      <input
+        aria-invalid={false}
+        className="MuiInputBase-input-28 MuiInput-input-13"
+        disabled={false}
+        id="searchInput"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onFocus={[Function]}
+        placeholder="Find your pie"
+        required={false}
+        type="text"
+      />
+    </div>
+  </div>
+</div>
+`;
