@@ -1,4 +1,4 @@
-class User {
+class Reader {
 
     getPies(pageOffset, order, searchString){
         let url = "https://pie.now.sh/pies?q=" + searchString + "&isPieOfTheDay=true&_page=" + 
@@ -54,4 +54,4 @@ class User {
 
 }
 
-export const user = new User();
+export const reader = new Reader();
